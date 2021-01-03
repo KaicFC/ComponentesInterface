@@ -1,0 +1,2 @@
+rootProject.name='ComponentesInterface'
+include ':app'
