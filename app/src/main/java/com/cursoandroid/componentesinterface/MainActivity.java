@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         String nome = campoNome.getText().toString();
         String email = campoEmail.getText().toString();
 
-        textoResultado.setText("nome: " + nome + " e E-mail: " + email);
+        textoResultado.setText("Nome: " + nome + ", E-mail: " + email);
     }
 
     public void limpar(View view){
