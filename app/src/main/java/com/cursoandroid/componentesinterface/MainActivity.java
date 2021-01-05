@@ -1,7 +1,9 @@
 package com.cursoandroid.componentesinterface;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -107,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void caixaTexto(){
-
         String nome = campoNome.getText().toString();
         String email = campoEmail.getText().toString();
 
@@ -115,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void checkbox(){
-
         String texto = "";
         if(checkVerde.isChecked()){
             texto = "- Verde Selecionado ";
@@ -148,13 +148,46 @@ public class MainActivity extends AppCompatActivity {
 
     public void limpar(View view){
 
-        campoNome.setText("");
-        campoEmail.setText("");
-        textoResultadoCheck.setText("");
-        textoResultadoCaixa.setText("");
-        textoResultadoRadio.setText("");
-        textoResultadoSwitch.setText("");
-        textoResultadoToggle.setText("");
+        //AlertDialog
+        AlertDialog.Builder dialog = new AlertDialog.Builder( this);
+        dialog.setTitle("Limpar campos");
+        dialog.setMessage("Os campos serão apagados, aceitar: ");
+        dialog.setCancelable(false);
+
+        dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                campoNome.setText("");
+                campoEmail.setText("");
+                textoResultadoCheck.setText("");
+                textoResultadoCaixa.setText("");
+                textoResultadoRadio.setText("");
+                textoResultadoSwitch.setText("");
+                textoResultadoToggle.setText("");
+
+                Toast.makeText(
+                        getApplicationContext(),
+                        "Os dados foram apagados",
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
+        dialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Toast.makeText(
+                        getApplicationContext(),
+                        "Os dados serão mantidos",
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
+
+        //Criar e exibir AlertDialog
+        dialog.create();
+        dialog.show();
     }
 
 
