@@ -32,25 +32,25 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cores" />
+        android:text="Tipo" />
 
     <CheckBox
         android:id="@+id/checkVerde"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Verde" />
+        android:text="CLT" />
 
     <CheckBox
         android:id="@+id/checkBranco"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Branco" />
+        android:text="PJ" />
 
     <CheckBox
         android:id="@+id/checkVermelho"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Vermelho" />
+        android:text="Estágio" />
 
     <TextView
         android:id="@+id/textView2"
@@ -74,6 +74,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Feminino" />
+
+        <Switch
+            android:id="@+id/switchLembrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Lembrar dados "
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textOff="Desligado"
+            android:textOn="Ligado"
+            android:textStyle="bold" />
+
+        <ToggleButton
+            android:id="@+id/toggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ToggleButton"
+            android:textOff="Não Aceito"
+            android:textOn="Aceito" />
     </RadioGroup>
 
     <Button
@@ -91,9 +111,38 @@
         android:text="Limpar" />
 
     <TextView
-        android:id="@+id/textResultado"
+        android:id="@+id/textoResultadoCaixa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Resultado"
+        android:text="Caixa: "
         android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textoResultadoCheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CheckBox: "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textoResultadoRadio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Radio: "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textoResultadoSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Switch: "
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/textoResultadoToggle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toggle: "
+        android:textSize="18sp" />
+
 </LinearLayout>
