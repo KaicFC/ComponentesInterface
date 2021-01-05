@@ -9,8 +9,10 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,12 +25,15 @@ public class MainActivity extends AppCompatActivity {
     private EditText campoNome;
     private TextInputEditText campoEmail;
     private TextView textoResultadoCaixa, textoResultadoCheck, textoResultadoRadio;
-    private TextView  textoResultadoSwitch,  textoResultadoToggle;
+    private TextView  textoResultadoSwitch,  textoResultadoToggle, textoResultadoSalario;
     private CheckBox checkVerde, checkBranco, checkVermelho;
     private RadioButton sexoMasculino, sexoFeminino;
     private RadioGroup opcaoSexo;
     private Switch switchLembrar;
     private ToggleButton toggleButton;
+    private ProgressBar progressBar;
+    private int progresso = 0;
+    private SeekBar seekBar;
 
 
     @Override
@@ -62,9 +67,40 @@ public class MainActivity extends AppCompatActivity {
         toggleButton = findViewById(R.id.toggleButton);
         textoResultadoToggle = findViewById(R.id.textoResultadoToggle);
 
+        //ProgressBar
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
+
+        //SeekBar
+        seekBar = findViewById(R.id.seekBar);
+        textoResultadoSalario = findViewById(R.id.textoResultadoSalario);
+
+        seekBar();
         radioButton();
         adicionarListener();
     }
+
+    public void seekBar(){
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                textoResultadoSalario.setText("Salário R$: " + progress + " / " + seekBar.getMax());
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+    }
+
 
     public void radioButton(){
         opcaoSexo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -96,15 +132,25 @@ public class MainActivity extends AppCompatActivity {
 
     public void enviar(View view){
 
+        //ProgressBar
+        progressBar.setVisibility(View.VISIBLE);
+        if( progresso == 1){
+            progressBar.setVisibility(View.GONE);
+        }else{
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
         caixaTexto();
         checkbox();
         radioButton();
         switchL();
         toggle();
 
+        //Toast
         Toast.makeText(
                 getApplicationContext(), "Enviado com sucesso!", Toast.LENGTH_SHORT
         ).show();
+
 
     }
 
@@ -189,8 +235,6 @@ public class MainActivity extends AppCompatActivity {
         dialog.create();
         dialog.show();
     }
-
-
 
 
 }

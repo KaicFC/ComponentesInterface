@@ -8,6 +8,12 @@
     android:padding="20dp"
     tools:context=".MainActivity" >
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:id="@+id/editNome"
         android:layout_width="match_parent"
@@ -27,6 +33,19 @@
             android:hint="Digite seu e-mail" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textoResultadoSalario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salário:" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        style="@style/Widget.AppCompat.SeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="5000" />
 
     <TextView
         android:id="@+id/textView"
@@ -75,26 +94,34 @@
             android:layout_height="wrap_content"
             android:text="Feminino" />
 
-        <Switch
-            android:id="@+id/switchLembrar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:text="Lembrar dados "
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textOff="Desligado"
-            android:textOn="Ligado"
-            android:textStyle="bold" />
-
-        <ToggleButton
-            android:id="@+id/toggleButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ToggleButton"
-            android:textOff="Não Aceito"
-            android:textOn="Aceito" />
     </RadioGroup>
+
+    <Switch
+        android:id="@+id/switchLembrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="Lembrar dados "
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textOff="Desligado"
+        android:textOn="Ligado"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aceita receber notificações"
+        android:textSize="14sp" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ToggleButton"
+        android:textOff="Não Aceito"
+        android:textOn="Aceito" />
 
     <Button
         android:id="@+id/button2"
