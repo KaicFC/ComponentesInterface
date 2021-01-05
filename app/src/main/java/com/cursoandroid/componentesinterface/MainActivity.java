@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -67,11 +68,11 @@ public class MainActivity extends AppCompatActivity {
         opcaoSexo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(checkedId == R.id.radioButtonMasculino){
-                    textoResultadoRadio.setText("Masculino");
-                }else if(checkedId == R.id.radioButtonFeminino){
-                    textoResultadoRadio.setText("Feminino");
-                }
+            if(checkedId == R.id.radioButtonMasculino){
+                textoResultadoRadio.setText("Masculino");
+            }else if(checkedId == R.id.radioButtonFeminino){
+                textoResultadoRadio.setText("Feminino");
+            }
             }
         });
     }
@@ -86,8 +87,6 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     textoResultadoSwitch.setText("Não lembrar dados");
                 }
-
-
             }
         });
     }
@@ -100,6 +99,10 @@ public class MainActivity extends AppCompatActivity {
         radioButton();
         switchL();
         toggle();
+
+        Toast.makeText(
+                getApplicationContext(), "Enviado com sucesso!", Toast.LENGTH_SHORT
+        ).show();
 
     }
 
@@ -122,7 +125,6 @@ public class MainActivity extends AppCompatActivity {
             texto = texto + "- Vermelho Selecionado ";
         }
         textoResultadoCheck.setText(texto);
-
     }
 
     public void switchL(){
@@ -132,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
         }else{
             textoResultadoSwitch.setText("Não lembrar dados");
         }
-
     }
 
     public void toggle(){
@@ -144,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
     public void limpar(View view){
 
         campoNome.setText("");
@@ -154,5 +156,8 @@ public class MainActivity extends AppCompatActivity {
         textoResultadoSwitch.setText("");
         textoResultadoToggle.setText("");
     }
+
+
+
 
 }
